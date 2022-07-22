@@ -34,7 +34,9 @@ View(fp1)
 
 g1 <- ggplot(fp, aes(x = filme, y = nota_rotten_tomatoes)) +
   geom_col(fill = "#386cb0") +
-  theme(axis.text.x = element_text(size = 10, color = "black", 
-                                 angle = 90, vjust = 5)) +
-  scale_x_discrete(expand = c(0,0))
+  labs(x = "Filmes", y = "Notas Rotten Tomatoes") +
+  theme(axis.text.x = element_text(size = 12, color = "black", 
+                                 angle = 40),
+        axis.text.y = element_text(size = 12, color = "black")) +
+  coord_flip()
 g1
