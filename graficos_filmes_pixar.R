@@ -29,10 +29,6 @@ fp <- fp %>%
   drop_na()
 View(fp)
 
-fp1 <- fp1 %>%
-  drop_na()
-View(fp1)
-
 g1 <- ggplot(fp, aes(x = fct_reorder(filme, nota_rotten_tomatoes), 
              y = nota_rotten_tomatoes)) +
   geom_col(fill = "#66c2a5") +
@@ -70,3 +66,34 @@ g3 <- ggplot(fp, aes(x = fct_reorder(filme, nota_critics_choice),
 g3
 
 grid.arrange(g1, g2, g3, ncol = 3, nrow = 1)
+
+fp1 <- fp1 %>%
+  drop_na()
+View(fp1)
+names(fp1)
+
+g4 <- ggplot(fp1, aes(x = fct_reorder(filme, bilheteria_mundial), 
+             y = bilheteria_mundial)) +
+  geom_col(fill = "#a6d854") +
+  labs(x = "Filmes", y = "Bilheteria mundial ($)") +
+  theme(axis.text.x = element_text(size = 12, color = "black"),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 15, color = "black")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)),
+                     labels = scales::comma) +
+  coord_flip()
+g4
+
+g5 <- ggplot(fp1, aes(x = fct_reorder(filme, bilheteria_eua_canada), 
+             y = bilheteria_eua_canada)) +
+  geom_col(fill = "#8da0cb") +
+  labs(x = "Filmes", y = "Bilheteria dos Estados Unidos e Canadá ($)") +
+  theme(axis.text.x = element_text(size = 12, color = "black"),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 15, color = "black")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)),
+                     labels = scales::comma) +
+  coord_flip()
+g5
+
+grid.arrange(g4, g5, ncol = 1, nrow = 2)
