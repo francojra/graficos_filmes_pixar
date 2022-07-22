@@ -21,3 +21,20 @@ View(fp)
 
 fp1 <- dados::pixar_bilheteria
 View(fp1)
+
+# Análises ---------------------------------------------------------------------------------------------------------------------------------
+
+fp <- fp %>%
+  drop_na()
+View(fp)
+
+fp1 <- fp1 %>%
+  drop_na()
+View(fp1)
+
+g1 <- ggplot(fp, aes(x = filme, y = nota_rotten_tomatoes)) +
+  geom_col(fill = "#386cb0") +
+  theme(axis.text = element_text(size = 8.5, color = "black", 
+                                 angle = 90)) +
+  scale_x_discrete(c(0,0))
+g1
