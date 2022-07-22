@@ -10,6 +10,7 @@ library(ggplot2)
 library(magrittr)
 library(tidyr)
 library(forcats)
+library(gridExtra)
 
 # Selecionar dados -------------------------------------------------------------------------------------------------------------------------
 
@@ -59,7 +60,7 @@ g2
 g3 <- ggplot(fp, aes(x = fct_reorder(filme, nota_critics_choice), 
              y = nota_critics_choice)) +
   geom_col(fill = "#e78ac3") +
-  labs(x = "Filmes", y = "Notas Metacritic") +
+  labs(x = "Filmes", y = "Notas Critics Choice") +
   theme(axis.text.x = element_text(size = 12, color = "black", 
                                  angle = 40),
         axis.text.y = element_text(size = 12, color = "black"),
@@ -67,3 +68,5 @@ g3 <- ggplot(fp, aes(x = fct_reorder(filme, nota_critics_choice),
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip()
 g3
+
+grid.arrange(g1, g2, g3, ncol = 3, nrow = 1)
