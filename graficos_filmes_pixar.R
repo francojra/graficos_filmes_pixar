@@ -34,7 +34,7 @@ View(fp1)
 
 g1 <- ggplot(fp, aes(x = filme, y = nota_rotten_tomatoes)) +
   geom_col(fill = "#386cb0") +
-  theme(axis.text.x = element_text(size = 8.5, color = "black", 
+  theme(axis.text.x = element_text(size = 10, color = "black", 
                                  angle = 90, vjust = 5)) +
   scale_x_discrete(expand = c(0,0))
 g1
