@@ -34,7 +34,7 @@ View(fp1)
 
 g1 <- ggplot(fp, aes(x = fct_reorder(filme, nota_rotten_tomatoes), 
              y = nota_rotten_tomatoes)) +
-  geom_col(fill = "#386cb0") +
+  geom_col(fill = "#66c2a5") +
   labs(x = "Filmes", y = "Notas Rotten Tomatoes") +
   theme(axis.text.x = element_text(size = 12, color = "black", 
                                  angle = 40),
@@ -43,3 +43,27 @@ g1 <- ggplot(fp, aes(x = fct_reorder(filme, nota_rotten_tomatoes),
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip()
 g1
+
+g2 <- ggplot(fp, aes(x = fct_reorder(filme, nota_metacritic), 
+             y = nota_metacritic)) +
+  geom_col(fill = "#fc8d62") +
+  labs(x = "Filmes", y = "Notas Metacritic") +
+  theme(axis.text.x = element_text(size = 12, color = "black", 
+                                 angle = 40),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 15, color = "black")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  coord_flip()
+g2
+
+g3 <- ggplot(fp, aes(x = fct_reorder(filme, nota_critics_choice), 
+             y = nota_critics_choice)) +
+  geom_col(fill = "#e78ac3") +
+  labs(x = "Filmes", y = "Notas Metacritic") +
+  theme(axis.text.x = element_text(size = 12, color = "black", 
+                                 angle = 40),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.title = element_text(size = 15, color = "black")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  coord_flip()
+g3
